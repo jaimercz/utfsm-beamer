@@ -1,0 +1,234 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Plantilla para Presentaciones, UTFSM, Chile
+%	=============================================
+%
+% Autor:
+%       Jaime C. Rubin-de-Celis <jaime@rubin-de-celis.com>
+%
+% Fecha:
+%       $Date: 2018-10-28 15:23:54 -0300 (28 Oct 2018) $
+%
+% Versión:
+%       1.0
+%
+% Licencia:
+%       Copyright (c) 2018, Jaime C. Rubin-de-Celis
+%       The MIT License
+%
+% Nota:
+%       Las imágenes son propiedad intelectual de la UTFSM.
+%
+% Uso:
+%       Ver archivo adjunto README.md.
+%       Si todo lo demás falla, recuerde "RTFM".
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[
+	9pt,
+	% handout % Uncomment to produce Handouts
+]{beamer}
+
+%%% CONFIGURATION
+\newcommand{\TheLogo}{figures/logoutfsmind_v.png}	%Required
+\newcommand{\TheBackground}{backgrounds/bgWhite.png}
+
+
+%%% HANDOUTS
+% Uncomment the following lines to prepare '3 slides in 1' Handouts
+% It is also advisable to add the option [handout] to the document class.
+% Options: `2 slides in 1`, `3 slides in 1` `4 slides in 1`
+%
+\usepackage{etex}
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+
+\usepackage[spanish]{babel}
+\usepackage[utf8,utf8x]{inputenc}
+
+\deftranslation[to=spanish]{Example}{Ejemplo}
+\deftranslation[to=spanish]{Definition}{Definición}
+\deftranslation[to=spanish]{Theorem}{Teorema}
+
+
+%%% Transitions
+\mode<presentation>
+{
+	\usetheme{JCR}
+	\setbeamercovered{transparent = 28}
+	\beamerdefaultoverlayspecification{<+->}
+	% Global Background
+	\usebackgroundtemplate{%
+    	\includegraphics[width=\paperwidth,height=\paperheight]{\TheBackground}%
+	}
+}
+
+%\usefonttheme{serif}
+%\usecolortheme{default}
+%\usecolortheme{orchid}
+\setbeamercolor{block title}{bg=gray40!10,fg=red!70}
+\setbeamercolor{block body}{bg=gray!5}
+\setbeamercolor{block title alerted}{bg = black,fg=red}
+\setbeamercolor{block body alerted}{bg = black!40,fg = white!80}
+
+
+\usepackage{amssymb,amsmath}
+\usepackage{epstopdf}
+%\usepackage{epsfig}
+
+
+\DeclareMathOperator*{\maxim}{Max}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\numberwithin{equation}{section}
+
+
+\title{Título de la Presentación}
+\subtitle{Subtítulo de la Presentación}
+\author{Jaime C. Rubin-de-Celis}
+\institute{Universidad Técnica Federico Santa María}
+\date{\today}
+%\titlegraphic{\includegraphics[width=40mm]{\TheLogo}}
+
+
+%---------------------------------------------------------------------------
+%%% PDF OPTIONS (HYPERREFERENCES)
+\hypersetup{
+		colorlinks=false
+		,linkcolor=black!80
+		,urlcolor=blue
+		,citecolor=red
+		,breaklinks=true
+  		,pdfinfo={  
+    Title={Apuntes de Gestión Estratégica},  
+    Subject={Gestión Estratégica},
+    Author={Jaime C. Rubin-de-Celis}
+    Keywords={Beamer Template},
+		Producer={JCR's LaTeX, http://www.rubin-de-celis.com/},
+		pdfpagemode=FullScreen,
+		pdfmenubar=false,
+		pdftoolbar=false
+  }  
+}
+%---------------------------------------------------------------------------
+
+
+%---------------------------------------------------------------------------
+%%% FIGURES, GRAPHICS AND COLORS
+\usepackage{wrapfig}			% flooating Figures and Tables
+	% Colors
+	\definecolor{gray80}{gray}{0.80}
+	\definecolor{gray40}{gray}{0.40}
+%---------------------------------------------------------------------------
+
+%---------------------------------------------------------------------------
+%%% TIKZ
+\usepackage{tikz}				% to hard to explain ;-)
+\usetikzlibrary{arrows,positioning,fit,shapes,calc,backgrounds}
+\usetikzlibrary{decorations.pathreplacing}
+\tikzstyle{line} = [draw, thick, gray40, ->, >=latex]
+% ATTENTION: library conflicts with pgfpages!!!
+%---------------------------------------------------------------------------
+
+
+%---------------------------------------------------------------------------
+%%% Begin Document
+%---------------------------------------------------------------------------
+
+\begin{document}
+
+\frame{\titlepage}
+
+%%%
+\section{Introducción}
+
+%
+\begin{frame}
+\frametitle{Introducción}
+
+Introducción ...
+
+\begin{itemize}
+\item Itemize
+\item Itemize
+\item Itemize
+\end{itemize}
+
+\begin{alertblock}{Alerta}
+\centering
+Alert Block
+\end{alertblock}
+
+\end{frame}
+
+
+%
+\begin{frame}
+\frametitle{Introducción}
+\begin{enumerate}
+\item Enumerate
+\item Enumerate
+\item Enumerate
+\end{enumerate}
+
+\begin{block}{Bloque}
+\centering
+Block Generico
+\end{block}
+
+\end{frame}
+
+
+%%%
+\section{Sección I}
+
+%
+\begin{frame}
+\frametitle{Sección I}
+\begin{columns}[t]
+	\column{.5\textwidth}
+	\begin{block}{Ventajas}
+	\begin{itemize}
+	\item Columnas
+	\end{itemize}
+	\end{block}
+	\column{.5\textwidth}
+	\begin{block}{Desventajas}
+	\begin{itemize}
+	\item Columnas
+	\end{itemize}
+	\end{block}
+\end{columns}
+\end{frame}
+
+%
+\begin{frame}
+\frametitle{Sección I}
+\framesubtitle{Subtítulo Sección I}
+	Bloques de Ejemplo\footnote{Esta es una nota al pie.}.
+	\begin{example}
+	Ejemplo\footnote{Esta es una nota al pie.} ...
+	\begin{equation*}
+	E =mc^2
+	\end{equation*}
+
+	\end{example}
+\end{frame}
+
+%
+\begin{frame}
+\frametitle{Sección I}
+\framesubtitle{Subtítulo Sección I}
+	\begin{example}
+	Ejemplo figuras ...
+	
+	\begin{figure}
+	\centering
+	\includegraphics[width=.85\textwidth]{figures/logoutfsmind_h.png}
+	\caption{Incorporación de Figuras {\tiny (Fuente: Elaboración Propia.)}}
+	\end{figure}
+	
+	\end{example}
+
+\end{frame}
+
+\end{document}

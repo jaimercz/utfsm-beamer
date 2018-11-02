@@ -1,0 +1,139 @@
+\mode<presentation>
+\RequirePackage{pgfcomp-version-0-65}
+
+%---------------------------------------------------------------------------
+%%% BIBLIOGRAPHY
+% Format (Author, Year)
+%\RequirePackage[round]{natbib}
+%\RequirePackage{biblatex}
+% Font size
+%\renewcommand\bibfont{\scriptsize}
+% If you have more than one page of references, you want to tell beamer
+% to put the continuation section label from the second slide onwards
+%\setbeamertemplate{frametitle continuation}[from second]
+%---------------------------------------------------------------------------
+
+%---------------------------------------------------------------------------
+%%% LOCALIZATION
+\deftranslation[to=spanish]{Example}{Ejemplo}
+\deftranslation[to=spanish]{Definition}{Definición}
+\deftranslation[to=spanish]{Theorem}{Teorema}
+%---------------------------------------------------------------------------
+
+%\RequirePackage{amssymb,amsmath}
+\RequirePackage{booktabs} 
+\RequirePackage{draftwatermark}
+\RequirePackage{graphicx}
+\RequirePackage{epstopdf}
+\RequirePackage{epsfig}
+\RequirePackage{fancybox}
+\RequirePackage{multirow}
+\RequirePackage{subfigure}
+\RequirePackage{tabularx}
+\RequirePackage{xcolor}
+% Math (fancy) Fonts
+\usepackage[scaled]{helvet}
+\usepackage{eulervm}
+
+
+%---------------------------------------------------------------------------
+%%% TIKZ
+\usepackage{tikz}				% to hard to explain ;-)
+\usetikzlibrary{arrows,positioning,fit,shapes,calc,backgrounds}
+\usetikzlibrary{decorations.pathreplacing}
+% ATTENTION: library conflicts with pgfpages!!!
+%---------------------------------------------------------------------------
+
+%---------------------------------------------------------------------------
+%%% COLORS
+\definecolor{Blue}{RGB}{40,40,180}
+\definecolor{Green}{RGB}{0,170,0}
+\definecolor{Red}{RGB}{170,0,0}
+\definecolor{GreyOne}{RGB}{125,125,125}
+
+%---------------------------------------------------------------------------
+
+%---------------------------------------------------------------------------
+%%% BEAMER
+%\usefonttheme{serif}
+%
+% Inner Theme
+\useinnertheme{rounded}
+% Alternatives 'rectangles','circles'
+\setbeamertemplate{itemize items}[triangle]
+\setbeamertemplate{enumerate items}[circle]
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{footline}{%
+  	\usebeamerfont{structure}
+  	\begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex]{head/foot}%
+		\hspace*{2mm}	
+    \insertsection\hfill \insertauthor \hfill\insertframenumber/\inserttotalframenumber
+    \hspace{2mm}
+  	\end{beamercolorbox}%
+}
+% Logo
+\setbeamertemplate{sidebar canvas right}{
+	\vspace{1mm}\hspace*{-20mm}
+	{\includegraphics[height=24pt]{\TheLogo}}%
+}
+\setbeamertemplate{headline}
+{
+  \leavevmode%
+  \vspace{2mm}
+}
+\setbeamertemplate{frametitle}{%
+	\vskip-3pt
+  \leavevmode
+  \hbox{%
+  \begin{beamercolorbox}[wd=.75\paperwidth,ht=5ex,dp=1.5ex,left,leftskip=1ex]{frametitle}%
+    \raggedright\hspace*{.5em}\insertframetitle\\
+    \vskip 2pt
+    \hspace*{1em}\small\insertframesubtitle
+  \end{beamercolorbox}
+  }%
+}
+%---------------------------------------------------------------------------
+
+%---------------------------------------------------------------------------
+%%% BEAMER COLORS & FONTS
+\usefonttheme{professionalfonts}
+\setbeamerfont{title}{size = \Large, series=\bfseries}
+\setbeamerfont{frametitle}{size = \large, series=\bfseries}
+\setbeamerfont{normal text}{size=\small}
+
+% Background Gradient
+%\beamertemplateshadingbackground{white!50}{Blue!5}
+
+\setbeamercolor{title}{fg = Blue,bg = Blue!5}
+\setbeamercolor{frametitle}{fg = black}
+\setbeamercolor{frametitle}{bg = white!50!Blue!5}
+
+\setbeamercolor{section in toc}{fg = Blue}
+\setbeamercolor{section in toc shaded}{fg = Red}
+
+\setbeamercolor{item}{fg = Blue}
+\setbeamercolor{subitem}{fg = Green}
+\setbeamercolor{subsubitem}{fg = Red}
+
+\setbeamercolor{description item}{fg = Blue}
+
+\setbeamerfont{block title}{series=\bfseries}
+\setbeamercolor{block title}{fg = black, bg = Blue!5!white}
+\setbeamercolor{block body}{bg = gray!5}
+
+\setbeamercolor{block title example}{bg = Green!5}
+\setbeamercolor{block body example}{bg = Green!2!}
+%---------------------------------------------------------------------------
+
+
+%---------------------------------------------------------------------------
+%%% TABLE OF CONTENTS
+% Place a Table of Contents at the beginning of each section.
+\AtBeginSection[] { 
+  \begin{frame}
+    \frametitle{Tabla de Contenidos} 
+    \tableofcontents[currentsection] 
+  \end{frame} 
+  \addtocounter{framenumber}{-1} 
+}
+%---------------------------------------------------------------------------
