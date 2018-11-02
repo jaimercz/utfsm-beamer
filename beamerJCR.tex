@@ -4,7 +4,8 @@
 ]{beamer}
 
 %%% CONFIGURATION
-\newcommand{\TheLogo}{logo_usm.png}	%Required
+\newcommand{\TheLogo}{figures/logoutfsmind_v.png}	%Required
+\newcommand{\TheBackground}{backgrounds/bgWhite.png}
 
 
 %%% HANDOUTS
@@ -32,7 +33,7 @@
 	\beamerdefaultoverlayspecification{<+->}
 	% Global Background
 	\usebackgroundtemplate{%
-    	\includegraphics[width=\paperwidth,height=\paperheight]{bgWhiteAbstract.jpg}%
+    	\includegraphics[width=\paperwidth,height=\paperheight]{\TheBackground}%
 	}
 }
 
@@ -176,7 +177,7 @@ Block Generico
 %
 \begin{frame}
 \frametitle{Sección I}
-\framesubtitle{Subtitulo Sección I}
+\framesubtitle{Subtítulo Sección I}
 	Bloques de Ejemplo\footnote{Esta es una nota al pie.}.
 	\begin{example}
 	Ejemplo\footnote{Esta es una nota al pie.} ...
@@ -190,14 +191,14 @@ Block Generico
 %
 \begin{frame}
 \frametitle{Sección I}
-\framesubtitle{Subtitulo Sección I}
+\framesubtitle{Subtítulo Sección I}
 	\begin{example}
 	Ejemplo figuras ...
 	
 	\begin{figure}
 	\centering
-	\includegraphics[width=.85\textwidth]{logo_usm.png}
-	\caption{Incorporación de Figuras {\tiny (Fuente: Yahoo! Finance.)}}
+	\includegraphics[width=.85\textwidth]{figures/logoutfsmind_h.png}
+	\caption{Incorporación de Figuras {\tiny (Fuente: Elaboración Propia.)}}
 	\end{figure}
 	
 	\end{example}
