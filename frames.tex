@@ -1,0 +1,275 @@
+%!TEX root = beamer  .tex
+
+%==============================================
+\section{Introduction}
+%==============================================
+\begin{frame}{\insertsectionhead}
+  \framesubtitle{A short introduction to Trigon}
+  \themename is a modern, elegant and versatile theme for Beamer, following UTFSM's
+  corporate image guidelines and colors
+  (\href{https://www.usm.cl}{\textsc{UTFSM}}). 
+  \vfill
+  \themename comes with lots of nice extra features
+  \begin{itemize}
+    \item Compliance with UT
+    \item Simple customization of theme colors
+    \item Lots of convenient options to tweak the design
+  \end{itemize}
+\end{frame}
+
+
+%==============================================
+\section{Layout}
+%==============================================
+
+\subsection{Layout variations}
+
+\begin{frame}[fragile=singleslide]{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  The general style for the title, section and regular frames can be changed
+  easily with simple options. Here are some examples for the title page
+
+\begin{figure}
+\centering     %%% not \center
+\subfigure[Figure A]{\label{fig:b}\includegraphics[width=50mm]{figures/logoutfsmind_h.png}}
+\subfigure[Figure B]{\label{fig:a}\includegraphics[width=30mm]{figures/logoutfsmind_v.png}}
+
+\subfigure[Figure C]{\label{fig:a}\includegraphics[width=30mm]{figures/thumbnail.png}}
+\caption{UTFSM Logos}
+\end{figure}
+
+\end{frame}
+
+%--------------------------------------
+\subsection{Fonts}
+
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  This theme is using (Linux) Libertine fonts for all elements. This can be changed in theme template.
+  \vfill
+  Emphasis can be added by using \textbf{bold} typeface, \textit{italic},
+  \alert{alert} or {\color{USMBlue}{simple colors}}.
+  \vfill
+  Equations are typsetted with this font as well
+  \begin{equation*}
+    F(x|\mu,s) = \int_{-\infty}^x s^{-1}\left(1+e^{-\frac{v-\mu}{s}}\right)^{-2} e^{-\frac{v-\mu}{s}}\;\mathsf{d}v = \frac{1}{1+e^{-\frac{x-\mu}{s}}}
+  \end{equation*}
+\end{frame}
+
+
+%==============================================
+\section{Elements}
+%==============================================
+\subsection{Charts}
+\begin{frame}{\insertsectionhead}
+	\framesubtitle{\insertsubsectionhead}
+	\begin{columns}[c, onlytextwidth]
+		\column{0.47\textwidth}
+		Use the theme color \texttt{USMBlue}, \texttt{USMRed}, \texttt{USMYellow} and
+		\texttt{USMYellow} to have charts directly fit the main theme of presentation.
+		\vfill
+		\begin{itemize}
+			\item Easy variants using \texttt{color!x} to lighten or darken the colors
+		\end{itemize}
+		\hfill
+		\column{0.47\textwidth}
+		\center
+		\resizebox{0.9\textwidth}{!}{%
+			\begin{tikzpicture}
+				\pie[color={USMBlue, USMRed!75, USMYellow!50, USMRed!25},
+				rotate=90, hide number, text= legend]
+				{50/USMBlue, 32/USMRed!75, 16/USMYellow!50, 2/USMRed!25}
+			\end{tikzpicture}
+		}
+	\end{columns}
+\end{frame}
+
+\subsection{Lists}
+\begin{frame}{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.28\textwidth}
+    Items
+    \begin{itemize}
+      \item Item 1
+        \begin{itemize}
+          \item Subitem 1
+          \item Subitem 2
+        \end{itemize}
+      \item Item 2
+      \item Item 3
+    \end{itemize}
+
+    \column{0.42\textwidth}
+    Enumerations
+    \begin{enumerate}
+      \item The Fellowship of the Ring,
+      \item The Two Towers,
+      \item The Return of the King.
+    \end{enumerate}
+
+    \column{0.30\textwidth}
+    Descriptions
+    \begin{description}
+      \item[UTFSM] Modern. \item[Default] Outdated.
+    \end{description}
+  \end{columns}
+\end{frame}
+
+
+
+%--------------------------------------
+\subsection{Figures}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+
+  \begin{figure}
+    \newcounter{density}
+    \setcounter{density}{20}
+    \begin{tikzpicture}
+      \def\couleur{USMYellow}
+      \def\color{USMRed}
+      \path[coordinate] (0,0)  coordinate(A)
+        ++( 60:5cm) coordinate(B)
+        ++(-60:5cm) coordinate(C);
+      \path[coordinate] (0,0)  coordinate(D)
+        ++(60:5cm) coordinate(E)
+        ++(180:5cm) coordinate(F);
+      \draw[fill=\couleur!\thedensity] (A) -- (B) -- (C) -- cycle;
+      \draw[fill=\color!\thedensity] (D) -- (E) -- (F) -- cycle;
+      \foreach \x in {1,...,15}{%
+        \pgfmathsetcounter{density}{\thedensity+10}
+        \setcounter{density}{\thedensity}
+        \path[coordinate] coordinate(X) at (A){};
+        \path[coordinate] (A) -- (B) coordinate[pos=.15](A)
+          -- (C) coordinate[pos=.15](B)
+          -- (X) coordinate[pos=.15](C);
+        \draw[fill=\couleur!\thedensity] (A)--(B)--(C)--cycle;
+      }
+      \setcounter{density}{20}
+      \foreach \x in {1,...,15}{%
+        \pgfmathsetcounter{density}{\thedensity+10}
+        \setcounter{density}{\thedensity}
+        \path[coordinate] coordinate(X) at (D){};
+        \path[coordinate] (D) -- (E) coordinate[pos=.15](D)
+          -- (F) coordinate[pos=.15](E)
+          -- (X) coordinate[pos=.15](F);
+        \draw[fill=\color!\thedensity] (D)--(E)--(F)--cycle;
+      }
+    \end{tikzpicture}
+    \caption{Rotated triangles from
+    \href{http://www.texample.net/tikz/examples/rotated-triangle/}{texample.net}.}
+  \end{figure}
+\end{frame}
+
+%--------------------------------------
+\subsection{Tables}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  \begin{table}[H]
+    \centering
+    \caption{A simple table example}
+    \begin{tabular}{@{} lccc @{}}
+      \toprule
+      & \textbf{Velocity} & \textbf{Angle}  & \textbf{Vertical force} \\
+      & $U$ & $\alpha$  & $F_z$ \\
+      & [m/s] & [$^\circ$]  & [N] \\
+      \midrule
+      2D simulation  & 9 & 2 & 9.23 \\
+      3D simulation  & 10.0 & 3 & 15.039 \\
+      Experiment A   & 11.31 & 2.5 & 13.2 \\
+      Experiment B   & 11.26 & 2.7 & 12.6 \\
+      Experiment C   & 11.33 & 2.47 & 13.6 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+\end{frame}
+
+%--------------------------------------
+\subsection{Blocks}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  \begin{block}{Regular block}
+    Just a regular block
+  \end{block}
+  \begin{alertblock}{Alert block}
+    Some important thing
+  \end{alertblock}
+  \begin{exampleblock}{Example block}
+    No difference with regular block to avoid excessive distraction
+  \end{exampleblock}
+\end{frame}
+
+%--------------------------------------
+\subsection{Frame footer}
+
+%
+\begin{frame}
+    \frametitle{\insertsectionhead}
+    \framesubtitle{\insertsubsectionhead}
+	Footnote example\footnote{This is a footnote.}.
+	\begin{example}
+		Ejemplo\footnote{This is a footnote.} ...
+		\begin{equation*}
+			E =mc^2
+		\end{equation*}
+	\end{example}
+\end{frame}
+
+
+\begin{frame}{References}
+  Some references to showcase 
+  \citet{Knuth92},
+  \citet{Simpson}
+  \citet{greenwade93}
+  \citet{ConcreteMath}
+\end{frame}
+
+%==============================================
+\section{Conclusion}
+%==============================================
+\begin{frame}{Summary}
+
+  Get the source of this theme and the demo presentation from
+
+  \begin{center}\url{https://github.com/jaimercz/utfsm-beamer}\end{center}
+
+  \themename is licensed under a
+  \href{https://opensource.org/licenses/MIT}{MIT LICENCE}. Images are intellectual
+  property of UTFSM \href{www.usm.cl}{USM}.
+
+\end{frame}
+
+%==============================================
+%\begin{frame}[standout]
+%  Questions?
+%\end{frame}
+
+\appendix
+
+\begin{frame}[fragile]{Backup slides}
+  Sometimes, it is useful to add slides at the end of your presentation to
+  refer to during audience questions.
+
+  The best way to do this is to include the \verb|appendixnumberbeamer|
+  package in your preamble and call \verb|\appendix| before your backup slides.
+
+  \themename will automatically turn off slide numbering and progress bars for
+  slides in the appendix.
+\end{frame}
+
+% The following line is very important! There is a bug with hyperref and overlays.
+% UTFSM theme uses <+-> specifications, but hyperref gets confused with this. 
+% So we need to reset the specification to make it work.
+\beamerdefaultoverlayspecification{<*>}
+\begin{frame}[allowframebreaks]{References}
+
+   \bibliography{biblio}
+
+\end{frame}
+
