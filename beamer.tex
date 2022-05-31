@@ -6,13 +6,13 @@
 %       Jaime C. Rubin-de-Celis <jaime@rubin-de-celis.com>
 %
 % Fecha:
-%       $Date: 2018-10-28 15:23:54 -0300 (28 Oct 2018) $
+%       $Date: 2022-03-28 15:23:54 -0300 (28 Marzo 2022) $
 %
 % Versión:
 %       1.0
 %
 % Licencia:
-%       Copyright (c) 2018, Jaime C. Rubin-de-Celis
+%       Copyright (c) 2018-2022, Jaime C. Rubin-de-Celis
 %       The MIT License
 %
 % Nota:
@@ -26,35 +26,39 @@
 
 \documentclass[
 	9pt,
-	% handout % Uncomment to produce Handouts
+    aspectratio=169,
+    professionalfonts,
+	 handout % Uncomment to produce Handouts
 ]{beamer}
 
-%%% CONFIGURATION
-\newcommand{\TheLogo}{figures/logoutfsmind_v.png}	%Required
-\newcommand{\TheBackground}{backgrounds/bgWhite.png}
-
+\usepackage[utf8,utf8x]{inputenc}
+%\usepackage[scale=2]{ccicons} % Icons for CC-BY-SA
+\usepackage{pgf-pie}
 
 %%% HANDOUTS
 % Uncomment the following lines to prepare '3 slides in 1' Handouts
 % It is also advisable to add the option [handout] to the document class.
 % Options: `2 slides in 1`, `3 slides in 1` `4 slides in 1`
-%
-\usepackage{etex}
 %\usepackage{handoutWithNotes}
 %\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
 
-\usepackage[spanish]{babel}
-\usepackage[utf8,utf8x]{inputenc}
 
-\deftranslation[to=spanish]{Example}{Ejemplo}
-\deftranslation[to=spanish]{Definition}{Definición}
-\deftranslation[to=spanish]{Theorem}{Teorema}
+%%% CONFIGURATION
+\newcommand{\TheLogo}{figures/logoutfsmind_v.png}	%Required
+\newcommand{\TheBackground}{backgrounds/usmCCFrontis_transparent.jpg}
+%\newcommand{\TheBackground}{backgrounds/bgWhiteAbstract.jpg}
 
+\title{Título de la Presentación}
+\subtitle{Subtítulo de la Presentación}
+\author{Jaime C. Rubin-de-Celis}
+\institute{Universidad Técnica Federico Santa María}
+\date{\today}
+\newcommand{\authoremail}{jaime.rubindecelis@usm.cl}
 
 %%% Transitions
 \mode<presentation>
 {
-	\usetheme{JCR}
+	\usetheme{UTFSM}
 	\setbeamercovered{transparent = 28}
 	\beamerdefaultoverlayspecification{<+->}
 	% Global Background
@@ -63,31 +67,10 @@
 	}
 }
 
-%\usefonttheme{serif}
-%\usecolortheme{default}
-%\usecolortheme{orchid}
-\setbeamercolor{block title}{bg=gray40!10,fg=red!70}
-\setbeamercolor{block body}{bg=gray!5}
-\setbeamercolor{block title alerted}{bg = black,fg=red}
-\setbeamercolor{block body alerted}{bg = black!40,fg = white!80}
-
-
-\usepackage{amssymb,amsmath}
-\usepackage{epstopdf}
-%\usepackage{epsfig}
-
-
 \DeclareMathOperator*{\maxim}{Max}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \numberwithin{equation}{section}
 
-
-\title{Título de la Presentación}
-\subtitle{Subtítulo de la Presentación}
-\author{Jaime C. Rubin-de-Celis}
-\institute{Universidad Técnica Federico Santa María}
-\date{\today}
-%\titlegraphic{\includegraphics[width=40mm]{\TheLogo}}
 
 
 %---------------------------------------------------------------------------
@@ -138,97 +121,6 @@
 
 \frame{\titlepage}
 
-%%%
-\section{Introducción}
-
-%
-\begin{frame}
-\frametitle{Introducción}
-
-Introducción ...
-
-\begin{itemize}
-\item Itemize
-\item Itemize
-\item Itemize
-\end{itemize}
-
-\begin{alertblock}{Alerta}
-\centering
-Alert Block
-\end{alertblock}
-
-\end{frame}
-
-
-%
-\begin{frame}
-\frametitle{Introducción}
-\begin{enumerate}
-\item Enumerate
-\item Enumerate
-\item Enumerate
-\end{enumerate}
-
-\begin{block}{Bloque}
-\centering
-Block Generico
-\end{block}
-
-\end{frame}
-
-
-%%%
-\section{Sección I}
-
-%
-\begin{frame}
-\frametitle{Sección I}
-\begin{columns}[t]
-	\column{.5\textwidth}
-	\begin{block}{Ventajas}
-	\begin{itemize}
-	\item Columnas
-	\end{itemize}
-	\end{block}
-	\column{.5\textwidth}
-	\begin{block}{Desventajas}
-	\begin{itemize}
-	\item Columnas
-	\end{itemize}
-	\end{block}
-\end{columns}
-\end{frame}
-
-%
-\begin{frame}
-\frametitle{Sección I}
-\framesubtitle{Subtítulo Sección I}
-	Bloques de Ejemplo\footnote{Esta es una nota al pie.}.
-	\begin{example}
-	Ejemplo\footnote{Esta es una nota al pie.} ...
-	\begin{equation*}
-	E =mc^2
-	\end{equation*}
-
-	\end{example}
-\end{frame}
-
-%
-\begin{frame}
-\frametitle{Sección I}
-\framesubtitle{Subtítulo Sección I}
-	\begin{example}
-	Ejemplo figuras ...
-	
-	\begin{figure}
-	\centering
-	\includegraphics[width=.85\textwidth]{figures/logoutfsmind_h.png}
-	\caption{Incorporación de Figuras {\tiny (Fuente: Elaboración Propia.)}}
-	\end{figure}
-	
-	\end{example}
-
-\end{frame}
+\include{frames}
 
 \end{document}

@@ -242,3 +242,7 @@ TSWLatexianTemp*
 
 # generated if using elsarticle.cls
 *.spl
+
+# VIM
+tags
+.*.swp

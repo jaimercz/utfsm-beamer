@@ -1,0 +1,288 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Plantilla para Presentaciones
+%	==============================
+%
+%    AUTOR:
+%		Jaime C. Rubin-de-Celis <jaime@rubin-de-celis.com>
+%
+%    FECHA:
+%		$Date: 2013-04-11 12:45:31 -0400 (Sat, 06 Apr 2013) $
+%
+%   ACERCA DE:
+%		Esta plantilla sigue las recomendaciones de la USM respecto del uso
+%		de la imagen institucional en Presentaciones Oficiales.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%---------------------------------------------------------------------------
+%%% PREAMBLE
+\mode<presentation>
+\RequirePackage{pgfcomp-version-0-65}
+
+%---------------------------------------------------------------------------
+%%% BIBLIOGRAPHY
+\RequirePackage[round,longnamesfirst]{natbib}
+%\RequirePackage{biblatex}
+\bibliographystyle{apalike}
+% Font size
+\renewcommand\bibfont{\scriptsize}
+% If you have more than one page of references, you want to tell beamer
+% to put the continuation section label from the second slide onwards
+\setbeamertemplate{frametitle continuation}[from second]
+\setbeamertemplate{caption}[numbered]
+%---------------------------------------------------------------------------
+
+%---------------------------------------------------------------------------
+%%% LOCALIZATION
+\RequirePackage[spanish,es-tabla]{babel}
+\deftranslation[to=spanish]{Example}{Ejemplo}
+\deftranslation[to=spanish]{Definition}{Definición}
+\deftranslation[to=spanish]{Theorem}{Teorema}
+%---------------------------------------------------------------------------
+
+%---------------------------------------------------------------------------
+%%% PACKAGES
+\RequirePackage{amssymb,amsmath}
+\RequirePackage{booktabs} 
+\RequirePackage{draftwatermark}
+\RequirePackage{graphicx}
+\RequirePackage{epstopdf}
+\RequirePackage{epsfig}
+\RequirePackage{fancybox}
+\RequirePackage{multirow}
+\RequirePackage{subfigure}  % TODO: Obsolete package, should be replaced with subfig
+\RequirePackage{tabularx}
+\RequirePackage{xcolor}
+\RequirePackage{etex}
+\RequirePackage{xspace}
+% Math (fancy) Fonts
+\usepackage[scaled]{helvet}
+\usepackage{eulervm}
+%---------------------------------------------------------------------------
+
+
+%---------------------------------------------------------------------------
+%%% TIKZ
+\usepackage{tikz}     % to hard to explain ;-)
+\usetikzlibrary{arrows,positioning,fit,shapes,calc,backgrounds}
+\usetikzlibrary{decorations.pathreplacing}
+% ATTENTION: library conflicts with pgfpages!!!
+%---------------------------------------------------------------------------
+
+%---------------------------------------------------------------------------
+%%% FONTS
+% These require 'professionalfonts' package
+\usepackage{libertine}
+% \usepackage{newtxtext,newtxmath}
+% \usepackage{kpfonts}
+% \usepackage{venturis2}
+% \usepackage{utopia}
+% \usepackage{tgtermes}
+%---------------------------------------------------------------------------
+
+%---------------------------------------------------------------------------
+%%% COLORS
+% Color definition for various sections.
+\definecolor{USMBlue}{RGB}{0,75,133}
+\definecolor{USMRed}{RGB}{214,0,25}
+\definecolor{USMGreen}{RGB}{0,132,82}
+\definecolor{USMYellow}{RGB}{247,163,0}
+\definecolor{USMBlack}{RGB}{40,40,40}
+
+%---------------------------------------------------------------------------
+%%% TABLE OF CONTENTS
+% Place a Table of Contents at the beginning of each section.
+\AtBeginSection[] { 
+  \begin{frame}
+    \frametitle{Tabla de Contenidos} 
+    \tableofcontents[currentsection] 
+  \end{frame} 
+  \addtocounter{framenumber}{-1} 
+}
+%---------------------------------------------------------------------------
+
+%---------------------------------------------------------------------------
+%%% MISCELANEOUS
+% Wide Itemize
+\newenvironment{wideitemize}{\itemize\addtolength{\itemsep}{10pt}}{\enditemize}
+%---------------------------------------------------------------------------
+
+%---------------------------------------------------------------------------
+%%% BEAMER
+\newcommand{\themename}{\textbf{\textsc{utfsm}}\xspace}
+\usefonttheme[onlymath]{serif}
+%
+% Font for the presentation title
+\setbeamerfont{title}{size = \Large, series=\bfseries}
+
+% Font of the frame titles
+\setbeamerfont{frametitle}{size=\huge, series=\bfseries}
+\setbeamerfont{framesubtitle}{size=\normalfont\normalsize}
+\setbeamerfont{normal text}{size=\small}
+%---------------------------------------------------------------------------
+
+% This sets the colour of the title of the presentation and titles of all the slides in the presentation to black.
+\setbeamercolor{title}{fg=USMBlue}
+\setbeamercolor{frametitle}{fg=USMBlue}
+
+\setbeamercolor{section in toc}{fg=USMBlue}
+\setbeamercolor{section in toc shaded}{fg=USMBlue} 
+
+\setbeamercolor{item}{fg = USMBlue}
+\setbeamercolor{subitem}{fg = USMRed}
+\setbeamercolor{subsubitem}{fg = USMYellow}
+
+\setbeamercolor{description item}{fg = USMGreen}
+
+% Inner Theme
+\useinnertheme{rounded} % Alternatives 'rectangles','circles'
+
+% Instead of rounded circles, we will use triangles as the indicator for items.
+\setbeamertemplate{itemize items}[triangle]
+\setbeamertemplate{enumerate items}[circle]
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+% Blocks
+\setbeamerfont{block title}{series=\bfseries}
+
+\setbeamercolor{block title}{fg = white, bg = USMBlue!75!white}
+\setbeamercolor{block body}{bg = USMBlue!10!white}
+
+\setbeamercolor{block title example}{bg = USMGreen!50!}
+\setbeamercolor{block body example}{bg = USMGreen!25!}
+
+\setbeamercolor{block title alerted}{fg=white,bg=USMRed}
+\setbeamercolor{block body alerted}{bg = USMRed!10!white}
+
+% Outer Theme
+
+% Remove the navigation symbols (as they will be included in the footline)
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{footline}{%
+    \usebeamerfont{structure}%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex]{title in head/foot}%
+        \hspace*{4mm}\insertsection%
+        \hfill%
+        \inserttitle
+        \hspace*{1mm} / \hspace*{1mm}
+        \insertauthor
+        \hfill%
+        \insertframenavigationsymbol%
+        \insertsubsectionnavigationsymbol%
+        \insertsectionnavigationsymbol%
+        \insertdocnavigationsymbol%
+        \insertbackfindforwardnavigationsymbol%
+        \hspace*{4mm}
+        \insertframenumber/\inserttotalframenumber%
+        \hspace*{4mm}
+        % \Tiny\hspace*{4mm} \Ffootline \hspace{4mm}%
+    \end{beamercolorbox}%
+}
+% Logo
+\newcommand{\LogoLine}{%
+  \raisebox{-2mm}[0pt][0pt]{%
+   	\begin{pgfpicture}{0mm}{0mm}{0mm}{0mm}
+        \pgfsetlinewidth{0.78mm}
+        \color{USMBlue}\pgfline{\pgfpoint{-3cm}{1mm}}{\pgfpoint{-2cm}{1mm}}
+        \color{USMRed}\pgfline{\pgfpoint{-2cm}{1mm}}{\pgfpoint{-1cm}{1mm}}
+        \color{USMYellow}\pgfline{\pgfpoint{-1cm}{1mm}}{\pgfpoint{0cm}{1mm}}
+    \end{pgfpicture}
+  }
+}
+\setbeamertemplate{sidebar canvas right}{%
+    \vspace*{3pt}\hspace*{-90pt}%
+    \includegraphics[height=20pt]{figures/logoutfsmind_h.png}%
+    \LogoLine%
+}
+% Alternatively you could place the LogoLine in the header (you will need
+% to adjust position and width accordingly).
+% \setbeamertemplate{headline}[text line]{\LogoLine}
+
+
+% You can adjust the frametitle (but I like the default).
+% \setbeamertemplate{frametitle}{
+% \vspace*{5mm}\hspace*{-2mm}\insertframetitle\\
+% \vspace*{2mm}\hspace*{-2mm}\color{USMRed}\normalsize\insertframesubtitle%
+% }
+
+
+% First, let's create the line
+\newcommand{\TitleLine}{%
+  \raisebox{-12mm}[0pt][0pt]{%
+   	\begin{pgfpicture}{0mm}{0mm}{0mm}{0mm}
+    	 \pgfsetlinewidth{0.10mm}
+    	  \color{gray}
+      	\pgfline{\pgfpoint{50mm}{0mm}}{\pgfpoint{50mm}{40mm}}
+    \end{pgfpicture}}}
+
+
+% We declare the image that will be used as the logo
+\pgfdeclareimage[width = 0.30\paperwidth]{logousm}{figures/logoutfsmind_v.png}
+
+
+
+%---------------------------------------------------------------------------
+%%% FRONT (TITLE) PAGE 
+\setbeamertemplate{title page}{
+    % \bigskip\bigskip
+    \vspace{1.5cm}
+    \begin{beamercolorbox}[wd=\paperwidth,ht=5cm,dp=1cm]{}
+        \begin{beamercolorbox}[wd=0.4\paperwidth]{}
+            % \centering
+            \begin{center}
+                \pgfuseimage{logousm}%
+            \end{center}%
+            \begin{pgfpictureboxed}{0mm}{0mm}{0mm}{0mm}
+                \pgfsetlinewidth{0.2mm}
+                \color{USMBlue!30!white}
+                \pgfline{\pgfpoint{6.5cm}{-1cm}}{\pgfpoint{6.5cm}{5cm}}
+            \end{pgfpictureboxed}%
+            \begin{pgfpictureboxed}{0mm}{0mm}{0mm}{0mm}
+                \pgfsetlinewidth{5mm}\color{USMBlue}
+                \pgfline{\pgfpoint{2.5cm}{-1.7cm}}{\pgfpoint{2.5cm}{-1.3cm}}
+            \end{pgfpictureboxed}%
+            \begin{pgfpictureboxed}{0mm}{0mm}{0mm}{0mm}
+                \pgfsetlinewidth{5mm}\color{USMRed}
+                \pgfline{\pgfpoint{3cm}{-1.7cm}}{\pgfpoint{3cm}{-1.3cm}}
+            \end{pgfpictureboxed}%
+            \begin{pgfpictureboxed}{0mm}{0mm}{0mm}{0mm}
+                \pgfsetlinewidth{5mm}\color{USMYellow}
+                \pgfline{\pgfpoint{3.5cm}{-1.7cm}}{\pgfpoint{3.5cm}{-1.3cm}}
+            \end{pgfpictureboxed}
+        \end{beamercolorbox}%
+        \hspace{3mm}
+        \begin{beamercolorbox}[wd=0.57\paperwidth]{}
+            \linespread{1.25}\selectfont
+            \begin{beamercolorbox}[wd=9cm]{}
+                \color{USMBlue}\textbf{\huge \inserttitle}\\
+                \color{USMRed}\textbf{\large \insertsubtitle}
+            \end{beamercolorbox}
+            \begin{beamercolorbox}[wd=9cm]{}
+                \bigskip
+            \end{beamercolorbox}
+            \hspace*{1cm}%
+            \begin{beamercolorbox}[wd=8cm]{}
+                \linespread{0.75}\selectfont
+                \insertauthor\\
+                \textit{\scriptsize\authoremail}\\
+                \bigskip
+                \textbf{\large\insertinstitute}\\
+            \end{beamercolorbox}
+
+            \bigskip
+            \begin{center}
+                \color{USMYellow}\insertdate
+            \end{center}
+        \end{beamercolorbox}%
+        
+
+    \end{beamercolorbox}%
+}
+%---------------------------------------------------------------------------
+
+\mode
+<all>
