@@ -20,15 +20,14 @@
 %---------------------------------------------------------------------------
 %%% PREAMBLE
 \mode<presentation>
-\RequirePackage{pgfcomp-version-0-65}
 
 %---------------------------------------------------------------------------
 %%% BIBLIOGRAPHY
 \RequirePackage[round,longnamesfirst]{natbib}
-%\RequirePackage{biblatex}
+% \RequirePackage{biblatex}         % Alternative to natbib
 \bibliographystyle{apalike}
-% Font size
-\renewcommand\bibfont{\scriptsize}
+\renewcommand\bibfont{\scriptsize}  % Font Size
+
 % If you have more than one page of references, you want to tell beamer
 % to put the continuation section label from the second slide onwards
 \setbeamertemplate{frametitle continuation}[from second]
@@ -46,8 +45,6 @@
 %---------------------------------------------------------------------------
 %%% PACKAGES
 \RequirePackage{amssymb,amsmath}
-\RequirePackage{booktabs} 
-\RequirePackage{draftwatermark}
 \RequirePackage{graphicx}
 \RequirePackage{epstopdf}
 \RequirePackage{epsfig}
@@ -58,17 +55,29 @@
 \RequirePackage{xcolor}
 \RequirePackage{etex}
 \RequirePackage{xspace}
+\RequirePackage[utf8,utf8x]{inputenc}
 % Math (fancy) Fonts
 \usepackage[scaled]{helvet}
 \usepackage{eulervm}
-%---------------------------------------------------------------------------
+\RequirePackage{booktabs} 
 
+% Watermarks
+\RequirePackage[
+    fontsize=56pt,
+    angle=30,
+    anchor=lb,
+    vpos=0.01\paperheight,
+    hpos=0.8\paperwidth
+]{draftwatermark}
+\SetWatermarkText{DO NOT COPY}
+%---------------------------------------------------------------------------
 
 %---------------------------------------------------------------------------
 %%% TIKZ
 \usepackage{tikz}     % to hard to explain ;-)
 \usetikzlibrary{arrows,positioning,fit,shapes,calc,backgrounds}
 \usetikzlibrary{decorations.pathreplacing}
+\tikzstyle{line} = [draw, thick, gray40, ->, >=latex]
 % ATTENTION: library conflicts with pgfpages!!!
 %---------------------------------------------------------------------------
 
@@ -86,11 +95,11 @@
 %---------------------------------------------------------------------------
 %%% COLORS
 % Color definition for various sections.
-\definecolor{USMBlue}{RGB}{0,75,133}
-\definecolor{USMRed}{RGB}{214,0,25}
-\definecolor{USMGreen}{RGB}{0,132,82}
-\definecolor{USMYellow}{RGB}{247,163,0}
-\definecolor{USMBlack}{RGB}{40,40,40}
+\definecolor{USMBlue}   {RGB}{0,75,133}
+\definecolor{USMRed}    {RGB}{214,0,25}
+\definecolor{USMGreen}  {RGB}{0,132,82}
+\definecolor{USMYellow} {RGB}{247,163,0}
+\definecolor{USMBlack}  {RGB}{40,40,40}
 
 %---------------------------------------------------------------------------
 %%% TABLE OF CONTENTS
@@ -195,7 +204,8 @@
 }
 \setbeamertemplate{sidebar canvas right}{%
     \vspace*{3pt}\hspace*{-90pt}%
-    \includegraphics[height=20pt]{figures/logoutfsmind_h.png}%
+    % \includegraphics[height=20pt]{figures/logoutfsmind_h.png}%
+    \includegraphics[height=20pt]{\TheLogoSmall}%
     \LogoLine%
 }
 % Alternatively you could place the LogoLine in the header (you will need
@@ -221,7 +231,8 @@
 
 
 % We declare the image that will be used as the logo
-\pgfdeclareimage[width = 0.30\paperwidth]{logousm}{figures/logoutfsmind_v.png}
+\pgfdeclareimage[width = 0.30\paperwidth]{logousm}{\TheLogo}
+% \pgfdeclareimage[width = 0.30\paperwidth]{logousm}{figures/logoutfsmind_v.png}
 
 
 
