@@ -1,21 +1,28 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%	Plantilla para Presentaciones
-%	==============================
+%	Plantilla para Presentaciones, UTFSM, Chile
+%	=============================================
 %
-%    AUTOR:
-%		Jaime C. Rubin-de-Celis <jaime@rubin-de-celis.com>
+% Autor:
+%       Jaime C. Rubin-de-Celis <jaime@rubin-de-celis.com>
 %
-%    FECHA:
-%		$Date: 2013-04-11 12:45:31 -0400 (Sat, 06 Apr 2013) $
+% Fecha:
+%       $Date: 2023-01-11 15:23:54 -0300 $
 %
-%   ACERCA DE:
-%		Esta plantilla sigue las recomendaciones de la USM respecto del uso
-%		de la imagen institucional en Presentaciones Oficiales.
+% Versión:
+%       2.0
 %
+% Licencia:
+%       Copyright (c) 2016-2023, Jaime C. Rubin-de-Celis
+%       The MIT License
+%
+% Nota:
+%       Las imágenes son propiedad intelectual de la UTFSM.
+%
+% Uso:
+%       Ver archivo adjunto README.md.
+%       Si todo lo demás falla, recuerde "RTFM".
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 
 %---------------------------------------------------------------------------
 %%% PREAMBLE
@@ -23,10 +30,19 @@
 
 %---------------------------------------------------------------------------
 %%% BIBLIOGRAPHY
-\RequirePackage[round,longnamesfirst]{natbib}
-% \RequirePackage{biblatex}         % Alternative to natbib
-\bibliographystyle{apalike}
+% Using biber/biblatex instead of (old) natbib/bibtex.
+\RequirePackage[
+    backend=biber,
+    style=apa,              % Alternative: authoryear-icomp,
+    sortlocale=es_ES,       % Spanish
+    natbib=true,            % Natbib backward compatibility
+    url=true,               % Allow URLs
+    doi=true,               % Allow DOI autoreference
+    eprint=false
+]{biblatex}
+\addbibresource{biblio.bib}
 \renewcommand\bibfont{\scriptsize}  % Font Size
+%---------------------------------------------------------------------------
 
 % If you have more than one page of references, you want to tell beamer
 % to put the continuation section label from the second slide onwards
@@ -55,7 +71,7 @@
 \RequirePackage{xcolor}
 \RequirePackage{etex}
 \RequirePackage{xspace}
-\RequirePackage[utf8,utf8x]{inputenc}
+\RequirePackage[utf8]{inputenc}
 % Math (fancy) Fonts
 \usepackage[scaled]{helvet}
 \usepackage{eulervm}
@@ -134,17 +150,17 @@
 %---------------------------------------------------------------------------
 
 % This sets the colour of the title of the presentation and titles of all the slides in the presentation to black.
-\setbeamercolor{title}{fg=USMBlue}
-\setbeamercolor{frametitle}{fg=USMBlue}
+\setbeamercolor{title}                 {fg=USMBlue}
+\setbeamercolor{frametitle}            {fg=USMBlue}
 
-\setbeamercolor{section in toc}{fg=USMBlue}
-\setbeamercolor{section in toc shaded}{fg=USMBlue} 
+\setbeamercolor{section in toc}        {fg=USMBlue}
+\setbeamercolor{section in toc shaded} {fg=USMBlue}
 
-\setbeamercolor{item}{fg = USMBlue}
-\setbeamercolor{subitem}{fg = USMRed}
-\setbeamercolor{subsubitem}{fg = USMYellow}
+\setbeamercolor{item}                  {fg = USMBlue}
+\setbeamercolor{subitem}               {fg = USMRed}
+\setbeamercolor{subsubitem}            {fg = USMYellow}
 
-\setbeamercolor{description item}{fg = USMGreen}
+\setbeamercolor{description item}      {fg = USMGreen}
 
 % Inner Theme
 \useinnertheme{rounded} % Alternatives 'rectangles','circles'
@@ -204,7 +220,6 @@
 }
 \setbeamertemplate{sidebar canvas right}{%
     \vspace*{3pt}\hspace*{-90pt}%
-    % \includegraphics[height=20pt]{figures/logoutfsmind_h.png}%
     \includegraphics[height=20pt]{\TheLogoSmall}%
     \LogoLine%
 }
